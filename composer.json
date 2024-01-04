@@ -1,0 +1,32 @@
+{
+    "name": "kennaar/phpunit-filtered-event-reproducable",
+    "type": "project",
+    "scripts": {
+        "test-all": [
+            "@test-without-filter",
+            "@test-with-filter",
+            "@test-with-path",
+            "@test-with-group",
+            "@test-with-testsuite"
+        ],
+        "test-without-filter": "vendor/bin/phpunit",
+        "test-with-filter": "vendor/bin/phpunit --filter=testAThing",
+        "test-with-path": "vendor/bin/phpunit tests/TestSuiteTwo",
+        "test-with-group": "vendor/bin/phpunit --group=b",
+        "test-with-testsuite": "vendor/bin/phpunit --testsuite=two"
+    },
+    "require": {
+        "php": "^8.1",
+        "phpunit/phpunit": "^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    }
+}
